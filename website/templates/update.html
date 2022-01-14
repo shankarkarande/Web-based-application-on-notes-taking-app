@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content%}
+<!-- {% if error_statement %}
+<div class="alert alert-danger  alert-dismissible fade show">
+  <button type="button" class="close" data-dismiss="alert">
+    ×
+  </button>
+  <div>
+    <strong>Warning! </strong>
+    {{error_statement}}
+  </div>
+</div>
+{% endif %}  -->
+
+<form action="/update/{{note.id}}" method="POST">
+
+  <div class="bg-light p-2">
+    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png"
+        width="25px" height="25px" style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea"
+        placeholder="{{note.data}}" style="text-align: center;" for="note" id="note" name="note"></textarea>
+      <br />
+      <div>
+        <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 5px;">Update</button>
+        <a href="/show" type="button" class=" btn-sm" style="margin-left: 1px;">Show</button>
+      </div>
+</form>
+{% endblock %}

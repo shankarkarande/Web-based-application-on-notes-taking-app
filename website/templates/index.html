@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<form action="/" method="POST">
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2">
+                        <div class="d-flex flex-row user-info"><img class="rounded-circle"
+                                src="/static/images/user1.png" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2" style="margin-top: 10px;">
+                                <!-- {% if session['logged_in'] %}
+                                <h6>Welcome, {{session['username'] }}</h6>
+                                {% endif %} -->
+                            </div>
+                        </div>
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                                    src="/static/images/icons-t.png" width="20px" height="20px"
+                                    style="margin-top: 10px; margin-right: 8px;">
+                                <input class="form-control " type="text" size="4" name="title" placeholder="Title"
+                                    style="text-align:center" id="title" for="title">
+                            </div>
+                        </div>
+
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                                    src="/static/images/note-logo2.png" width="25px" height="25px"
+                                    style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea"
+                                    placeholder="Note" style="text-align: center;" id="textarea" for="textarea"
+                                    name="textarea"></textarea>
+                            </div>
+                            <div class="mt-2 text-right">
+
+                                <button type="submit" class="btn btn-primary btn-sm" id="submit" style="margin-top: 15px;">Add</button>
+                                <a href="/show" class="btn-primary btn-sm ml-2 " type="submit"
+                                    id="show">Show</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+
+{% endblock %}
