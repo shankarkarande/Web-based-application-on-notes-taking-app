@@ -1,52 +1,50 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content%}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
 <h5 style="margin-top: 5px;">Your Notes</h5>
 <ul class="list-group list-group-flush" id="notes">
-  <div class="container my-3">
+    <div class="container my-3">
 
-    {% if user.notes|length == 0 %}
-    <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Info:">
+        {% if user.notes|length == 0 %}
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Info:">
         <use xlink:href="/" />
       </svg>
-      <div>
-        <strong>Not Found !</strong>
-        Notes are not required please add !
-      </div>
+            <div>
+                <strong>Not Found !</strong> Notes are not required please add !
+            </div>
+        </div>
+
+        {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">Modify</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for note in user.notes %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{note.nt}}</td>
+                    <td>{{note.data}}</td>
+                    <td>{{note.date}}</td>
+                    <td style="align-items: center;">
+                        <a href="/update/{{note.id}}" type="button" class="btn-white ">
+                            <img src="static/images/exchange.png" style="height: 25px; width: 25px; margin: 8px;"></img>
+                            </button>
+                            <a href="/delete/{{note.id}}" type="button" class="btn-white">
+                                <img src="static/images/trash.png" style="height: 25px; width: 25px; margin-left: 12px;"></img>
+                                </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
     </div>
-
-    {% else %}
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">S/N</th>
-          <th scope="col">Notes</th>
-          <th scope="col">Date/Time</th>
-          <!-- <th scope="col">Time</th> -->
-          <th scope="col">Modify</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {% for note in user.notes %}
-        <tr>
-          <th scope="row">{{loop.index}}</th>
-          <td>{{note.data}}</td>
-          <td>{{note.date}}</td>
-          <td style="align-items: center;">
-            <a href="/update/{{note.id}}" type="button" class="btn-white ">
-              <img src="static/images/exchange.png" style="height: 25px; width: 25px; margin: 8px;"></img>
-              </button>
-              <a href="/delete/{{note.id}}" type="button" class="btn-white">
-                <img src="static/images/trash.png" style="height: 25px; width: 25px; margin-left: 12px;"></img>
-              </button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% endif %}
-  </div>
 </ul>
 {% endblock %}

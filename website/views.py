@@ -15,23 +15,26 @@ views = Blueprint('views', __name__)
 @login_required
 def home():
     if request.method == 'POST':
+        title = request.form.get('title')
         note = request.form.get('note')
 
-        if not note:
-            error_statement = "Please type note.."
-            return render_template('home.html', error_statement=error_statement, note=note, user=current_user)
+        if not title and not note:
+            error_statement = "Fields are required "
+            return render_template('home.html', error_statement=error_statement,title = title ,note=note, user=current_user)
 
-        new_note = Note(data=note, user_id=current_user.id)
+        new_note = Note(nt = title , data=note, user_id=current_user.id)
         db.session.add(new_note)
         db.session.commit()
         flash('Note added!', category='success')
 
     allnote = Note.query.all()
+    db.create_all()
     return render_template("home.html", user=current_user, allnote=allnote)
 
 
 @views.route('/show')
 def show():
+    
     return render_template('show.html', user=current_user)
 
 
@@ -51,13 +54,15 @@ def delete_note():
 @views.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     if request.method == 'POST':
+        title = request.form.get('title')
         note = request.form.get('note')
 
         note = Note.query.filter_by(id=id).first()
         note.note = note
+        title.title = title
         db.session.add(note)
         db.session.commit()
         return redirect('/show')
 
     note = Note.query.filter_by(id=id).first()
-    return render_template("update.html", note=note, user=current_user)
+    return render_template("update.html", title = title ,  note=note, user=current_user)
