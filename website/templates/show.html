@@ -17,7 +17,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">S/N</th>
+                    <th scope="col">SNo</th>
                     <th scope="col">Title</th>
                     <th scope="col">Note</th>
                     <th scope="col">Date/Time</th>
@@ -29,7 +29,7 @@
                 {% for note in user.notes %}
                 <tr>
                     <th scope="row">{{loop.index}}</th>
-                    <td>{{note.nt}}</td>
+                    <td>{{note.ntitle}}</td>
                     <td>{{note.data}}</td>
                     <td>{{note.date}}</td>
                     <td style="align-items: center;">

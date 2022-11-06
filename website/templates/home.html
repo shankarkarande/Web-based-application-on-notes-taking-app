@@ -9,10 +9,8 @@
 </div>
 {% endif %}
 
-<form method="POST">
+<!-- <form method="POST">
     <h5 style="text-align: center; ">Cloud Notes</h5>
-    <!-- <textarea name="note" id="note" class="form-control"></textarea> -->
-    <!-- <div class="bg-light p-2"> -->
     <div class="bg-light p-2">
         <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/icons-t.png" width="20px" height="20px" style="margin-top: 10px; margin-right: 8px;">
             <input class="form-control " type="text" size="4" name="title" placeholder="Title" style="text-align:center" id="title" for="title" value="{{title}}" name="title">
@@ -25,5 +23,46 @@
             <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 5px;">Add</button>
             <a href="/show" type="button" class=" btn-sm" style="margin-left: 1px;">Show</button>
       </div>
+</form> -->
+
+<form method="POST">
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2">
+                        <!-- <img class="center-block" c src="/static/images/user1.png" width="40"> -->
+                        <!-- <p style="margin-left: 280px;">Pretty Notes</p> -->
+                        <div class="d-flex flex-column justify-content-start ml-2" style="margin-top: 10px;">
+                            {% if session['logged_in'] %}
+                            <h6>Welcome, {{session['firstName'] }}</h6>
+                            {% endif %}
+                            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="/static/images/user1.png" width="40">
+                                <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Hey User!</span><span class="date text-black-50">Enter Your Notes</span></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/icons-t.png" width="20px" height="20px" style="margin-top: 10px; margin-right: 8px;">
+                                <input class="form-control " type="text" size="4" name="title" placeholder="Title" style="text-align:center" id="title" for="title" value="{{title}}">
+                            </div>
+                        </div>
+
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png" width="25px" height="25px" style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea" placeholder="Note" style="text-align: center;" id="note"
+                                    for="textarea" name="note" value="{{note}}"></textarea>
+                            </div>
+                            <div class="mt-2 text-right">
+                                <!-- <button class="btn btn-primary btn-sm shadow-none" type="" id="submit">Add
+                                note</button> -->
+                                <button type="submit" class="btn btn-primary btn-sm" id="submit">Add note</button>
+                                <a href="/show" class="btn btn-button-outline-primary btn-sm ml-2 " type="submit" id="show">Show</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 </form>
 {% endblock %}
