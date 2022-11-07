@@ -1,28 +1,32 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content%}
-<!-- {% if error_statement %}
-<div class="alert alert-danger  alert-dismissible fade show">
-  <button type="button" class="close" data-dismiss="alert">
-    ×
-  </button>
-  <div>
-    <strong>Warning! </strong>
-    {{error_statement}}
-  </div>
-</div>
-{% endif %}  -->
-
+{% extends "base.html" %} {% block body %}
 <form action="/update/{{note.id}}" method="POST">
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2">
+                        <div class="d-flex flex-row user-info"><img class="rounded-circle" src="/static/images/user1.png" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Hey User!</span><span class="date text-black-50">Update Your Notes</span></div>
+                        </div>
 
-  <div class="bg-light p-2">
-    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png"
-        width="25px" height="25px" style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea"
-        placeholder="{{note.data}}" style="text-align: center;" for="note" id="note" name="note"></textarea>
-      <br />
-      <div>
-        <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 5px;">Update</button>
-        <a href="/show" type="button" class=" btn-sm" style="margin-left: 1px;">Show</button>
-      </div>
+                        <div class="row">
+                            <div class="col-lg-11 col-lg-offset-4" style="margin-left:52px ; margin-top: 10px;">
+                                <div class="input-group">
+                                    <input class="form-control " type="text" size="4" placeholder="Title" style="text-align:center" id="title" value="{{note.title}}" for="title" name="title">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png" width="40"><textarea class="form-control ml-1 shadow-none textarea" placeholder="{{note.note}}" style="text-align: center;" id="note" for="note" name="note"></textarea></div>
+                            <div class="mt-2 text-right">
+                                <button class="btn btn-primary btn-sm shadow-none" type="submit" id="submit">Update
+                                    note</button>
+                                <a href="/show" class="btn btn-button-outline-primary btn-sm ml-2 " type="submit" id="show">Show</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </form>
-{% endblock %}
+{% endblock body %}
