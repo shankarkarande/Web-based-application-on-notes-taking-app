@@ -60,6 +60,21 @@ def delete_note():
     return jsonify({})
 
 
+# @views.route('/deleteAccount/<int:id>', method =  ['GET','POST'])
+# def delete_account():
+#     email = json.loads(request.email)
+#     password = json.load(request.password)
+#     user_id = email['id']
+#     password = password['id']
+#     email = email['email']
+#     password = password['password']
+#     if email or password:
+#         if email.user_id == current_user.id:
+#             db.session.delete(user_id)
+#             db.session.commit()
+#         return jsonify({})
+
+
 @views.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     if request.method == 'POST':

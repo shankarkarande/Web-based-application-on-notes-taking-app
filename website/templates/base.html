@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>www.notesapp.com</title>
+<title>www.notesapp.in</title>
 
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
@@ -14,64 +14,84 @@
     <title>{% block title %}www.notesapp.in{% endblock %}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/static/images/note-logo.png" type="image/icon type">
+    <link rel="icon" href="/static/images/nt.png" type="image/icon type">
+    <style>
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .bg-img {
+            /* The image used */
+            background-image: url("/static/images/bg8.png");
+            min-height: 380px;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar navbar-light " style="background-color: #e3f2fd; margin-top: 10px; ">
-            <div class="container-fluid ">
-                <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarNavAltMarkup " aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
+    <div class="bg-img">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar navbar-light " style="background-color: #e3f2fd; margin-top: 10px; ">
+                <div class="container-fluid ">
+                    <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarNavAltMarkup " aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
           <span class="navbar-toggler-icon "></span>
         </button>
-                <div class="collapse navbar-collapse " id="navbarNavAltMarkup ">
-                    <div class="navbar-nav ">
-                        {% if user.is_authenticated %}
-                        <a class="nav-item nav-link active " id="home " href="/home ">Home</a>{% else %}
-                        <!-- <a class="nav-item nav-link active " id="logout " href="/logout ">Logout</a> -->
-                        <a class="nav-item nav-link active " id="login " href="/login ">Login</a>
-                        <a class="nav-item nav-link active " id="signUp " href="/sign-up ">Sign Up</a> {% endif %}
-                        <!-- Example single danger button -->
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">More
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
+                    <div class="collapse navbar-collapse " id="navbarNavAltMarkup ">
+                        <div class="navbar-nav ">
                             {% if user.is_authenticated %}
+                            <a class="nav-item nav-link active " id="home " href="/home ">Home</a>{% else %}
+                            <!-- <a class="nav-item nav-link active " id="logout " href="/logout ">Logout</a> -->
+                            <a class="nav-item nav-link active " id="login " href="/login ">Login</a>
+                            <a class="nav-item nav-link active " id="signUp " href="/sign-up ">Sign Up</a> {% endif %}
+                            <!-- Example single danger button -->
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">More
+                        <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                {% if user.is_authenticated %}
 
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/deleteAccout">Delete Account</a></li>
-                            <li><a href="/logout">Logout</a></li>{% endif %}
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/deleteAccout">Delete Account</a></li>
+                                <li><a href="/logout">Logout</a></li>{% endif %}
 
 
-                            <!-- <li><a href="#">JavaScript</a></li> -->
-                        </ul>
+                                <!-- <li><a href="#">JavaScript</a></li> -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            </nav>
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} {% if category == 'error' %}
+            <div class="alert alert-danger alter-dismissable fade show " role="alert ">
+                {{ message }}
+                <button type="button " class="close " data-dismiss="alert ">
+        <span aria-hidden="true ">&times;</span>
+      </button>
             </div>
-        </nav>
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} {% if category == 'error' %}
-        <div class="alert alert-danger alter-dismissable fade show " role="alert ">
-            {{ message }}
-            <button type="button " class="close " data-dismiss="alert ">
+            {% else %}
+            <div class="alert alert-success alter-dismissable fade show " role="alert ">
+                {{ message }}
+                <button type="button " class="close " data-dismiss="alert ">
         <span aria-hidden="true ">&times;</span>
       </button>
-        </div>
-        {% else %}
-        <div class="alert alert-success alter-dismissable fade show " role="alert ">
-            {{ message }}
-            <button type="button " class="close " data-dismiss="alert ">
-        <span aria-hidden="true ">&times;</span>
-      </button>
-        </div>
-        {% endif %} {% endfor %} {% endif %} {% endwith %}
+            </div>
+            {% endif %} {% endfor %} {% endif %} {% endwith %}
 
-        <div class="container ">{% block content %} {% endblock %}</div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+            <div class="container ">{% block content %} {% endblock %}</div>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
 
-        <script type="text/javascript " src="{{ url_for( 'static', filename='index.js' ) }} "></script>
+            <script type="text/javascript " src="{{ url_for( 'static', filename='index.js' ) }} "></script>
+        </div>
 </body>
 
 </html>

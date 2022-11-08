@@ -1,134 +1,129 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-        }
-        
-        html {
-            box-sizing: border-box;
-        }
-        
-        *,
-        *:before,
-        *:after {
-            box-sizing: inherit;
-        }
-        
+{% extends "base.html" %} {% block title %}Delete{% endblock %} {% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+    
+    html {
+        box-sizing: border-box;
+    }
+    
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+    
+    .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 8px;
+    }
+    
+    .about-section {
+        padding: 20px;
+        text-align: center;
+        background-color: #474e5d;
+        color: white;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .container::after,
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    .title {
+        color: grey;
+    }
+    
+    .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: grey;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .button:hover {
+        background-color: black;
+    }
+    
+    @media screen and (max-width: 650px) {
         .column {
-            float: left;
-            width: 33.3%;
-            margin-bottom: 16px;
-            padding: 0 8px;
-        }
-        
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            margin: 8px;
-        }
-        
-        .about-section {
-            padding: 50px;
-            text-align: center;
-            background-color: #474e5d;
-            color: white;
-        }
-        
-        .container {
-            padding: 0 16px;
-        }
-        
-        .container::after,
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-        
-        .title {
-            color: grey;
-        }
-        
-        .button {
-            border: none;
-            outline: 0;
-            display: inline-block;
-            padding: 8px;
-            color: white;
-            background-color: #000;
-            text-align: center;
-            cursor: pointer;
             width: 100%;
+            display: block;
         }
-        
-        .button:hover {
-            background-color: #555;
-        }
-        
-        @media screen and (max-width: 650px) {
-            .column {
-                width: 100%;
-                display: block;
-            }
-        }
-    </style>
-    <title>{% block title %}www.notesapp.in{% endblock %}</title>
+    }
+</style>
 </head>
 
-<body>
 
-    <div class="about-section">
-        <h1>About Us Page</h1>
-        <p>Some text about who we are and what we do.</p>
-        <p>Resize the browser window to see that this page is responsive by the way.</p>
-    </div>
+<div class="about-section">
+    <h1>About Us</h1>
+    <p>Currently we are pursuing Bachelor of Engineering in data science. The reason behind this project is to explore new technology with real world problem. So we build this web based notes taking app to all student users.
+    </p>
+    <p>Progressive Education Society, Modern College of Engineering, Pune<br><br>
+        <u><b>Project Guidance - Dr. Prof. Mrs. Sharddha V Pandit Mam</b></u>
+    </p>
+</div>
 
-    <h2 style="text-align:center">Our Team</h2>
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img src="static/images/ShankarImage.jpeg" alt="shankar" width="180px" height="260px" style="margin-left: 100px;">
-                <div class="container">
-                    <h2>Shankar Karande</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>shankarkarande440@gmail.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="/static/images/sainath.jpg" alt="Mike" width="200px" height="230px" style="margin-left: 100px; margin-top: 20px;">
-                <div class="container">
-                    <h2>Sainath Kolpe</h2>
-                    <p class="title">Art Director</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>mike@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-                <div class="container">
-                    <h2>John Doe</h2>
-                    <p class="title">Designer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>john@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="static/images/ShankarImage.jpeg" alt="shankar" width="150px" height="200px" style="margin-left: 80px;">
+            <div class="container">
+                <h5 class="text-center">Shankar Karande</h4>
+                    <p class="title">Database Admin</p>
+                    <p>My Work is in this project to handle all users data without any interruption.</p>
+                    <p>Email - shankarkarande440@gmail.com</p>
+                    <p><button class="button"><a href = "mailto: ShankarKarande440@gmail.com">Contact</a></button></p>
             </div>
         </div>
     </div>
 
-</body>
+    <div class="column">
+        <div class="card">
+            <img src="/static/images/sai.jpg" alt="Sainath" width="150px" height="170px" style="margin-left: 100px; margin-top : 30px">
+            <div class="container">
+                <h5 class="text-center">Sainath Kolpe</h4>
+                    <p class="title">Frontend Developer</p>
+                    <p>I was created all frontend interface UI/UX by using awesome framworks.</p>
+                    <p>Email - sainathkolpe757@gmail.com</p>
+                    <p><button class="button"><a href = "mailto: sainathkolpe757@gmail.com">Contact</a></button></p>
+            </div>
+        </div>
+    </div>
 
-</html>
+    <div class="column">
+        <div class="card">
+            <img src="/static/images/ok.jpeg" alt="John" width="150px" height="170px" style="margin-left: 100px; margin-top : 30px">
+            <div class="container">
+                <h5 class="text-center">Onkar Komatwar</h5>
+                <p class="title">Web Analyst</p>
+                <p>My work is to create and analyze the structure of Notes web application.</p>
+                <p>Email - onkarkomatwar11@gmail.com</p>
+                <p><button class="button"><a href = "mailto: onkarkomatwar11@gmail.com">Contact</a></button></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %} {% block title %}Delete{% endblock %} {% block content %}
+<form action="/deleteAccout/{{user.id}}" method="POST">
+    <h3 align="center">Delete Account</h3>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Delete</button>
+</form>
+<div id="footer" style="margin-top: 18%;">
+    {% block footer %}
+    <p class="text-center">&copy; Copyright 2022 By PES MCOE DEPARTMENT OF AIDS</p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    {% endblock %}
 
-<body>
-    <h5>This is delete account page</h5>
-</body>
-
-</html>
+</div>
+{% endblock %}
