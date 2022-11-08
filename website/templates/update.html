@@ -22,7 +22,7 @@
                             <h6>Welcome, {{session['firstName'] }}</h6>
                             {% endif %} -->
                             <div class="d-flex flex-row user-info"><img class="rounded-circle" src="/static/images/user1.png" width="40">
-                                <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Hey User!</span><span class="date text-black-50">Enter Your Notes</span></div>
+                                <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Hey User!</span><span class="date text-red-50">Update Your Notes</span></div>
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="bg-light p-2">
-                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png" width="25px" height="25px" style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea" placeholder="{{note.data}}" style="text-align: center;"
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/static/images/note-logo2.png" width="25px" height="25px" style="margin-top: 15px;"><textarea class="form-control ml-1 shadow-none textarea" placeholder="{{note.note}}" style="text-align: center;"
                                     id="note" for="note" name="note"></textarea>
                             </div>
                             <div class="mt-2 text-right">

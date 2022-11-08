@@ -22,7 +22,7 @@ def home():
             error_statement = "Fields are required "
             return render_template('home.html', error_statement=error_statement,note=note, title = title, user=current_user)
 
-        new_note = Note(title = title , data=note, user_id=current_user.id)
+        new_note = Note(title = title , note=note, user_id=current_user.id)
         db.session.add(new_note)
         db.session.commit()
         flash('Note added!', category='success')
@@ -66,10 +66,10 @@ def update(id):
         title = request.form.get('title')
         note = request.form.get('note')
 
-        note = Note.query.filter_by(id=id).first()
-        note.title = title
-        note.note = note
-        db.session.add(note)
+        notify = Note.query.filter_by(id=id).first()
+        notify.title = title
+        notify.note = note
+        db.session.add(notify)
         db.session.commit()
         return redirect('/show')
 
