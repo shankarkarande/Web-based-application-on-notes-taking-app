@@ -10,7 +10,7 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     note = db.Column(db.String(10000), nullable=False)
-    date =db.Column(db.DateTime , default=datetime.utcnow)
+    date =db.Column(db.DateTime , default=datetime.today)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self) -> str:
