@@ -13,7 +13,7 @@ The main objective of the note’s making app is to create their own notes and p
 
 ## Developers
 <li>Shankar Karande (<a href="mailto:shankarkarande440@gmail.com">shankarkarande440@gmai.com</a>)</li>
-<li>Sainath Kolpe (<a href="mailto:mayureshh1234@gmail.com">mayureshh1234@gmail.com</a>)</li>
+<li>Sainath Kolpe (<a href="mailto:sainathkolpe757@gmail.com">sainathkolpe757@gmail.com</a>)</li>
 <li>Onkar Komatwar(<a href="onkarkomatwar11@gmail.com">onkarkomatwar11@gmail.com</a>)</li>
 </ul>
 
